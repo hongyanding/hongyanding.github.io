@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>手机芯片厂商科普 | Dinghongyan</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Dinghongyan">
+    <meta name="author" content="Ding">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="Dinghongyan" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>
+            
+            
+            
+            <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>
+            
+        </ul>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">Dinghongyan</a></li>
+                            <li class="nolink"><span>Always </span>Creative.</li>
+                            
+                            <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a></li>
+                            
+                            
+                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a></li>
+                            
+                            
+                            <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a></li>
+                            
+                            
+                            <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a></li>
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">More</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-09-21T02:42:21.000Z" itemprop="datePublished">
+          2016-09-21
+      </time>
+    
+    
+    | 
+    <a href='/tags/hexo/'>hexo</a>,
+    
+    <a href='/tags/github-pages/'>github pages</a>,
+    
+    <a href='/tags/博客/'>博客</a>
+    
+    
+</span>
+                <h1>手机芯片厂商科普</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<blockquote>
+<p>示例：三星 S3 CPU:Cortex-A7 (armv7-a架构)</p>
+<p>背景</p>
+</blockquote>
+<p>X86构架属于典型的CISC，指令集丰富，指令不等长，善于执行复杂工作，更强调串行性能，它的整体运算能力要比只为移动而生的ARM架构强大，并且在PC领域已经广泛应用，拥有深厚的技术背景。由于X86构架的处理器芯片在性能上比较强劲，善于执行复杂工作，所以当英特尔进军移动市场领域后，只推出的双核芯片就可以媲美ARM构架的四核芯片性能。</p>
+<p>当英特尔与AMD在PC领域斗的水深火热的时候，ARM偷偷的随着第二次智能手机革命而崛起，不仅快速的占领市场，同时还造就出了多个出色的移动芯片品牌，例如：美国高通、英伟达tegra、联发科MTK等等。</p>
+<p>典型如华为的海思920、三星Exynos 5430，只能说是“使用ARM Cortex-A15核心的芯片”。但是如果一款兼容ARM指令集的芯片使用了厂商自主研发的微架构情况就不同了。高通骁龙800、苹果A7就是这样的例子–它们分别使用了高通、苹果自主研发的CPU。</p>
+<p>那么，现在各家CPU研发厂商选择指令集的标准又是什么呢？业界除了x86和ARM、MIPS，其实还有一大堆各种各样的指令集。比如小型主机领域的Sparc、Alpha、Power等。国内几家研CPU的科研机构就分别选择了x86、MIPS、Sparc、Alpha、ARM指令集，早年甚至有机构选择Intel没落的Itanium使用的EPIC指令集的。一般来说大家倾向于选择软件生态较好的指令集–前面说过，软件必须编译后才能在某种指令集平台上运行，而编译是很复杂的事情，绝大多数闭源软件仅仅会对少数一两个平台编译。因而支持某种指令集的软件应用越多，这种指令集也就越有市场优势–新开发的微架构只需要兼容某种指令集，那么就可以很容易运行大量为其开发的软件。早年因为微软的强势与Wintel联盟的推动，x86指令集成了最受欢迎的角色，帮助Intel用彼时性能相对落后的微架构在PC平台挤跑了一众对手。后PC时代由于苹果谷歌的两大操作系统平台的推动，ARM指令集又取得了绝对的市场优势。但对于新的CPU研发单位来说，他们想获得热门指令集的兼容授权是很困难的事情。以前x86与ARM的指令集授权是拿钱买不到的，想要得到都需要进行高水平专利交换。拿到x86授权的几家厂商要么是拿的早（AMD、Cyrix、IDT），要么是有高水平技术与Intel交易（Transmeta，以功耗控制技术同Intel交易）。后来Nvidia想要研发自己的CPU，找Intel软磨硬泡后者就是不给，搞得Nvidia相当无奈。国内的研发单位当年开始研究时自知不可能拿到x86授权，于是各自去找关系好些的其他授权方解决问题了。ARM这边也一直对指令集授权卡的很死，之前只有高通、博通和Intel得到，也是通过技术交换的形式。08年苹果乔帮主被Intel甩脸色后决定自己搞CPU，最后也拿到了ARM的许可，想来彼时老乔也是威逼利诱，硬是让ARM屈服了（毕竟指令集多授权一家就多个对手啊）。后来ARM对指令集授权也放松了，去年三星与华为也分别得到了授权，他们的自研CPU预计也将在未来一两年面世。</p>
+<h4 id="科普"><a href="#科普" class="headerlink" title="科普"></a>科普</h4><hr>
+<p>在关注Android的时候，有一些CPU架构方面的术语知识需要给自己补充的。主要有ARM、X86/Atom、MIPS、PowerPC，其中ARM在智能手机上面一枝独秀:)<br>其中ARM/MIPS/PowerPC均是基于精简指令集机器处理器的架构；<br>X86则是基于复杂指令集的架构，Atom是x86或者是x86指令集的精简版。<br>根据各种新闻，Android在支持各种处理器的现状：<br>ARM+Android 最早发展、完善的支持，主要在手机市场、上网本、智能等市场；<br>X86+Android 有比较完善的发展。有atom+Android的上网本，且支持Atom+Android 和 Atom+Window7双系统；<br>MIPS+Android 目前在移植、完善过程中；<br>Powpc+Android 目前在移植、完善过程中。</p>
+<p>ARM系列<br>ARM架构，过去称作进阶精简指令集机器（Advanced RISC Machine，更早称作：Acorn RISC Machine），是一个32位精简指令集（RISC）处理器架构，其广泛地使用在许多嵌入式系统设计。由于节能的特点，ARM处理器非常适用于行动通讯领域，符合其主要设计目标为低耗电的特性。<br>在今日，ARM家族占了所有32位嵌入式处理器75%的比例，使它成为占全世界最多数的32位架构之一。ARM处理器可以在很多消费性电子产品上看到，从可携式装置（PDA、移动电话、多媒体播放器、掌上型电子游戏，和计算机）到电脑外设（硬盘、桌上型路由器）甚至在导弹的弹载计算机等军用设施中都有他的存在。在此还有一些基于ARM设计的派生产品，重要产品还包括Marvell的XScale架构和德州仪器的OMAP系列。<br>优势：价格低；能耗低；<br>ARM 授权方式：ARM 公司本身并不靠自有的设计来制造或出售 CPU ，而是将处理器架构授权给有兴趣的厂家。ARM 提供了多样的授权条款，包括售价与散播性等项目。对于授权方来说，ARM 提供了 ARM 内核的整合硬件叙述，包含完整的软件开发工具（编译器、debugger、SDK），以及针对内含 ARM CPU 硅芯片的销售权。对于无晶圆厂的授权方来说，其希望能将 ARM 内核整合到他们自行研发的芯片设计中，通常就仅针对取得一份生产就绪的智财核心技术（IP Core）认证。对这些客户来说，ARM 会释出所选的 ARM 核心的闸极电路图，连同抽象模拟模型和测试程式，以协助设计整合和验证。需求更多的客户，包括整合元件制造商（IDM）和晶圆厂家，就选择可合成的RTL（暂存器转移层级，如 Verilog）形式来取得处理器的智财权（IP）。借着可整合的 RTL，客户就有能力能进行架构上的最佳化与加强。这个方式能让设计者完成额外的设计目标（如高震荡频率、低能量耗损、指令集延伸等）而不会受限于无法更动的电路图。虽然 ARM 并不授予授权方再次出售 ARM 架构本身，但授权方可以任意地出售制品（如芯片元件、评估板、完整系统等）。商用晶圆厂是特殊例子，因为他们不仅授予能出售包含 ARM 内核的硅晶成品，对其它客户来讲，他们通常也保留重制 ARM 内核的权利。<br>生产厂商：TI （德州仪器）/Samsung（三星）/Freescale（飞思卡尔）/Marvell（马维尔）/Nvidia（英伟达）<br>下面是四核ARM芯片架构图，可以参看：<br>[图片]</p>
+<p>x86系列/Atom处理器<br>xx86或80x86是英代尔Intel首先开发制造的一种微处理器体系结构的泛称。<br>x86架构是重要地可变指令长度的CISC（复杂指令集电脑，Complex Instruction Set Computer）。<br>Intel Atom（中文：凌动，开发代号：Silverthorne）是Intel的一个超低电压处理器系列。处理器采用45纳米工艺制造，集成4700万个晶体管。L2缓存为512KB，支持SSE3指令集，和VT虚拟化技术（部份型号）。<br>现时，Atom处理器系列有6个型号，全部都是属于Z500系列。它们分别是Z500、Z510、Z520、Z530、Z540和Z550。最低端的Z500内核频率是800MHz，FSB则是400MHz。而最高速的Z550，内核频率则有2.0GHz，FSB则是533MHz。从Z520开始，所有的处理器都支持超线程技术，但只增加了不到10%的耗电。双内核版本为N系列，依然采用945GC芯片组。双内核版本仍会支持超线程技术，所以系统会显示出有4个逻辑处理器。这个版本的两个内核并非采用本地设计，只是简单的将两个单内核封装起来。</p>
+<p>MIPS系列<br>MIPS是世界上很流行的一种RISC处理器。MIPS的意思是“无内部互锁流水级的微处理器”(Microprocessor without interlocked piped stages)，其机制是尽量利用软件办法避免流水线中的数据相关问题。它最早是在80年代初期由斯坦福(Stanford)大学Hennessy教授领导的研究小组研制出来的。MIPS公司的R系列就是在此基础上开发的RISC工业产品的微处理器。这些系列产品为很多计算机公司采用构成各种工作站和计算机系统。<br>MIPS技术公司是美国著名的芯片设计公司，它采用精简指令系统计算结构(RISC)来设计芯片。和英特尔采用的复杂指令系统计算结构(CISC)相比，RISC具有设计更简单、设计周期更短等优点，并可以应用更多先进的技术，开发更快的下一代处理器。MIPS是出现最早的商业RISC架构芯片之一，新的架构集成了所有原来MIPS指令集，并增加了许多更强大的功能。MIPS自己只进行CPU的设计，之后把设计方案授权给客户，使得客户能够制造出高性能的CPU。<br>1984年，MIPS计算机公司成立，开始设计RISC处理器；<br>1986年推出R2000处理器。<br>1992年，SGI收购了MIPS计算机公司。<br>1988年推R3000处理器。<br>1991年推出第一款64位商用微处器R4000；之后又陆续推出R8000（于1994年）、R10000（于1996年）和R12000（于1997年）等型号。<br>1998年，MIPS脱离SGI，成为MIPS技术公司；随后，MIPS公司的战略发生变化，把重点放在嵌入式系统；1998年－MIPS科技股票在美国纳斯达克股票交易所公开上市。<br>1999年，MIPS公司发布MIPS32和MIPS64架构标准，为未来MIPS处理器的开发奠定了基础。新的架构集成了所有原来NIPS指令集，并且增加了许多更强大的功能。MIPS公司陆续开发了高性能、低功耗的32位处理器内核（core）MIPS324Kc与高性能64位处理器内核MIPS64 5Kc。<br>2000年，MIPS公司发布了针对MIPS32 4Kc的版本以及64位MIPS 64 20Kc处理器内核。<br>2007年8月16日－MIPS科技宣布，中科院计算机研究所的龙芯中央处理器获得其处理器IP的全部专利和总线、指令集授权。<br>2007年12月20日－MIPS科技宣布，扬智科技已取得其针对先进多媒体所设计的可定制化系统单芯片（SoC）核心“MIPS32 24KEc Pro”授权。</p>
+<p>PowerPC系列<br>PowerPC 是一种精简指令集（RISC）架构的中央处理器（CPU），其基本的设计源自IBM（国际商用机器公司）的IBM PowerPC 601 微处理器POWER（Performance Optimized With Enhanced RISC；《IBM Connect 电子报》2007年8月号译为“增强RISC性能优化”）架构。二十世纪九十年代，IBM(国际商用机器公司)、Apple（苹果公司）和Motorola（摩托罗拉）公司开发PowerPC芯片成功，并制造出基于PowerPC的多处理器计算机。PowerPC架构的特点是可伸缩性好、方便灵活。<br>PowerPC 处理器有广泛的实现范围，包括从诸如 Power4 那样的高端服务器 CPU 到嵌入式 CPU 市场（任天堂 Gamecube 使用了 PowerPC）。PowerPC 处理器有非常强的嵌入式表现，因为它具有优异的性能、较低的能量损耗以及较低的散热量。除了象串行和以太网控制器那样的集成 I/O，该嵌入式处理器与“台式机”CPU 存在非常显著的区别。</p>
+<p>互补型的实时性(Real Time)较好的DSP架构<br>DSP是微处理器的一种,这种微处理器具有极高的处理速度.因为应用这类处理器的场合要求具有很高的实时性(Real Time)。比如通过移动电话进行通话,如果处理速度不快就只能等待对方停止说话，这一方才能通话。如果双方同时通话，因为数字信号处理速度不够,就只能关闭信号连接.在DSP出现之前数字信号处理只能依靠MPU(微处理器)来完成。但MPU较低的处理速度无法满足高速实时的要求。因此，直到70年代，有人才提出了DSP的理论和算法基础。那时的DSP仅仅停留在教科书上，即便是研制出来的DSP系统也是由分立元件组成的，其应用领域仅局限於军事、航空航天部门。90年代DSP发展最快，相继出现了第四代和第五代DSP器件。现在的DSP属於第五代产品，它与第四代相比，系统集成度更高，将DSP芯核及外围元件综合集成在单一芯片上。这种集成度极高的DSP芯片不仅在通信、计算机领域大显身手，而且逐渐渗透到人们日常消费领域。</p>
+<p>百科：<br>ARM架构 <a href="http://zh.wikipedia.org/zh-cn/ARM%E6%9E%B6%E6%A7%8B#.E5.85.A7.E6.A0.B8.E7.A8.AE.E9.A1.9E" target="_blank" rel="external">http://zh.wikipedia.org/zh-cn/ARM%E6%9E%B6%E6%A7%8B#.E5.85.A7.E6.A0.B8.E7.A8.AE.E9.A1.9E</a><br>ARM架构 <a href="http://www.txrjy.com/baike/view.asp?ARM%BC%DC%B9%B9" target="_blank" rel="external">http://www.txrjy.com/baike/view.asp?ARM%BC%DC%B9%B9</a><br>dsp架构 <a href="http://baike.c114.net/view.asp?id=17155-2E64F9EF" target="_blank" rel="external">http://baike.c114.net/view.asp?id=17155-2E64F9EF</a><br>x86 <a href="http://zh.wikipedia.org/zh-cn/x86" target="_blank" rel="external">http://zh.wikipedia.org/zh-cn/x86</a><br>AMD <a href="http://zh.wikipedia.org/zh-cn/%E8%B6%85%E5%A8%81%E5%8D%8A%E5%AF%BC%E4%BD%93" target="_blank" rel="external">http://zh.wikipedia.org/zh-cn/%E8%B6%85%E5%A8%81%E5%8D%8A%E5%AF%BC%E4%BD%93</a><br>ARM:<br>云计算中心的基石，ARM架构？<a href="http://goo.gl/OMwl" target="_blank" rel="external">http://goo.gl/OMwl</a><br>ARM问鼎服务器 能否成为挑战x86的黑马 <a href="http://goo.gl/zsB3" target="_blank" rel="external">http://goo.gl/zsB3</a><br>Android:<br>Android助力mips移动战略 <a href="http://goo.gl/EgM4" target="_blank" rel="external">http://goo.gl/EgM4</a><br>分析ARM与ANDROID市场及技术结合点 <a href="http://goo.gl/854L" target="_blank" rel="external">http://goo.gl/854L</a><br>论山寨手机与Android <a href="http://goo.gl/nd9C" target="_blank" rel="external">http://goo.gl/nd9C</a><br>Android资源 <a href="http://goo.gl/m62y" target="_blank" rel="external">http://goo.gl/m62y</a><br>国内Android 市场调查 <a href="http://goo.gl/pOHQ" target="_blank" rel="external">http://goo.gl/pOHQ</a><br>PC World：Android与iPhone手机的五大战场 <a href="http://goo.gl/QEpZ" target="_blank" rel="external">http://goo.gl/QEpZ</a><br>Android 2.2 for Intel 夏天公布 <a href="http://goo.gl/AveA" target="_blank" rel="external">http://goo.gl/AveA</a><br>华硕将推”ARM架构+Android OS”上网本 <a href="http://goo.gl/DOFp" target="_blank" rel="external">http://goo.gl/DOFp</a><br>Intel:<br>MeeGo:开放源代码 Linux开发者蠢蠢欲动 <a href="http://goo.gl/wGXr" target="_blank" rel="external">http://goo.gl/wGXr</a><br>英特尔在智能手机处理器市场挑战ARM显劣势 <a href="http://goo.gl/cT4n" target="_blank" rel="external">http://goo.gl/cT4n</a><br>Android支持x86 Intel全力开发今夏亮相 <a href="http://goo.gl/8sw0" target="_blank" rel="external">http://goo.gl/8sw0</a><br>完成统一霸业! 凌动处理器性能全解析 <a href="http://goo.gl/BYKr" target="_blank" rel="external">http://goo.gl/BYKr</a><br>Apple:<br>第一篇详尽的 iPhone 4 评测 <a href="http://goo.gl/pzoE" target="_blank" rel="external">http://goo.gl/pzoE</a><br>传苹果欲再购一家处理器厂商 看好ARM架构 <a href="http://goo.gl/Os5G" target="_blank" rel="external">http://goo.gl/Os5G</a></p>
+<hr>
+<h3 id="各公司简介："><a href="#各公司简介：" class="headerlink" title="各公司简介："></a>各公司简介：</h3><blockquote>
+<p>联发科技 MT系列处理器</p>
+</blockquote>
+<p>简介：台湾联发科技股份有限公司(MediaTek.Inc)是全球IC设计领导厂商，专注于无线通讯及数字多媒体等技术领域。联发科技提供的芯片整合系统解决方案，包含无线通讯、高清数字电视、光储存、DVD及蓝光等相关产品，市场上均居领导地位。<br>特点：价格平民化、占据了千元智能手机大部分的市场</p>
+<blockquote>
+<p>英伟达Tegra系列处理器</p>
+</blockquote>
+<p>简介：Tegra是NVIDIA公司于2008年推出的基于ARM构架通用处理器品牌(即CPU，NVIDIA称为“Computer on a chip”片上计算机)，能够为便携设备提供高性能、低功耗体验。从2008年至今，英伟达已经推出了1、2、3、4四个系列产品，其中Tegra 3系列在2012年受到了广大消费者的认可。<br>特点：图形运算性能强大、采用4+1核心设计</p>
+<blockquote>
+<p>美国高通公司 骁龙移动处理器</p>
+</blockquote>
+<p>简介：骁龙(Snapdragon)是美国高通公司(Qualcomm)推出的高度集成的 “全合一”移动处理器系列平台，分别覆盖入门级智能手机乃至高端智能手机、平板电脑以及下一代智能终端。Snapdragon以基于ARM架构定制的微处理器内核为基础，结合了业内领先的3G/4G移动宽带技术与强大的多媒体功能、3D图形功能和GPS引擎。<br>特点：性能强劲、研发技术领先、产品线较为丰富、知名度较高</p>
+<h2 id="各公司处理清单"><a href="#各公司处理清单" class="headerlink" title="各公司处理清单"></a>各公司处理清单</h2><h4 id="中国台湾的联发科（MTK）"><a href="#中国台湾的联发科（MTK）" class="headerlink" title="中国台湾的联发科（MTK）"></a>中国台湾的联发科（MTK）</h4><blockquote>
+<p>中国台湾的联发科（MTK） 公司的产品因为集成较多的多媒体功能和较低的价格在大陆手机公司和手机设计公司得到广泛的应用。更由于MTK的完工率较高，基本上在60％以上，这样手机厂商拿到手机平台基本上就是一个半成品，只要稍稍的加工就可上架出货了。这也正是许多黑手机都使用MTK的最主要的原因。下面我们就来盘点MTK智能手机主控芯片：</p>
+</blockquote>
+<ul>
+<li>MT6573/MT6513区别不同点MT6573是为GSM+WCDMA网络设计，双卡双待而MT6513只为GSM网络设计，不支持3G网络。</li>
+<li>MT6515是关于TD智能手机解决方案。支持Android 4.0 Ice Cream Sandwich操作系统，不论是多媒体还是上网速度都做了极优化，它提供完整的中国移动3G软件包，方便手机厂商终端的上市时间。</li>
+<li>MT6575是2012年推出的一款基于Cortex-A9架构的单核处理器，支持双模GSM/WCDMA网络。</li>
+<li>MT6515M是6575的cust down版本，主频1GHz的ARM CortexTM-A9处理器，只支持单模的GSM制式网络。</li>
+<li>MT6575/MT6515/MT6515M处理器的区别不同点MT6515在硬件规格上与MT6575没有任何区别只是MT6575支持联通WCDMA网络制式，MT6515则是MT6575的TD-SCDMA移动3G网络版本MT6515M则是在整体规格上比前两者略微差一些，是它们的cout down版本，它只支持单模的GSM制式，主打入门机市场的处理器。MTK MT6575、MT6515、MT6515M的主频率都是1GHz，MT6575支持双模GSM/WCDMA网络，MT6515支持GSM/TD-SCDMA网络，MT6515M则只支持GSM网络。</li>
+<li>MT6517GPU是PowerVR SGX531超频版 ，支持Android 4.0 Ice Cream Sandwich操作系统。支持1080p/30fps视频的录制和播放。它不支持3G的网络，有人说可以添加可加支持TD-SCDMA与CDMA的基带，从而支持TD以及电信3G网络。</li>
+<li>MT6577支持Android 4.0 Ice Cream Sandwich操作系统。最高支持1080p/30fps视频的录制和播放。集成3G移动宽带连接，支持单模HSPA+网络，支持GSM、GPRS和EDGE。具有独立GPS和辅助GPS模式，支持Wi-Fi和蓝牙连接。支持双卡双待（WCDMA+GSM）。</li>
+<li>MT6577/MT6517处理器的区别不同点：MT6517和MT6577内核一样，CPU和GPU都是一模一样的, 所以处理能力也是一样的.只是前者只支持GSM网络，可搭配AST3000开发成移动的TD手机，后者直接支持WCDMA网络，可直接开发成联通3G手机。</li>
+<li>MT6572是2013年的，支持高清720p低功耗影音播放与录制、500万像素照相机、高清LCD显示（qHD 960X540），提供数字电视（DTV）等级的影像处理，支持WCDMA、TD SCDMA以及EDGE等多种制式的网络 。主要芯片有：支持TDSCDMA网络制式的MT6572TD ，支持EDGE网络MT6572E。MT6572序列芯片比同时双核的MT6577、MT6517更具有竞争优势。它号称是世界上首颗采用先进28纳米制程的入门级双核智能手机SoC，宣称低功耗内存和更好的CPU架构，会更省电，更稳定的性能 。</li>
+<li>MT6582其主要配置参数应该也和MT6589差不太多，也为四核处理器。支持1080p 30fps的视频的编解码，自带TD基带。</li>
+<li>MT6588最高支持1080P的视频录制。并且将支持多种网络制式。基带集成了WCDMA和TD多模modem，即同时支持移动联通3G网络。</li>
+<li>MT6589M同为四核的CPU，但它是MT6589的低配版，MT6589支持Full HD，但MT6589M只能支持HD，但它也可以支持WCDMA、TD SCDMA，以及EDGE等多模网络，该款芯片因为芯片生成成本便宜，所以相对另两款89芯片价格很有优势。</li>
+<li>MT6589T参数和MT6589类似，但是主频从MT6589的1.2GHz提升到了1.5GHz ，内置的PowerVR SGX 544MP图形处理器 主频也提升至357M，可以说是MT6589的高配版，据称近两年来红火的采用网络销售的某公司的即将发布的红米手机，就是采用该款芯片。</li>
+<li>MT6589是2012年12月发布的四核智能机芯片，号称是世界第一个整合W+G/TD+G/W+TD双通功能的手机芯片。</li>
+<li>MT6592真八核CPU芯片采用的是ARM Cortex-A7架构，28nm HPM 制程并由台湾台积电代工，搭配 Mali-450MP GPU，主频高达700MHz。</li>
+<li>MT6595由四颗Cortex-A17核心和四颗Cortex-A7核心共同组成了big.LITTLE架构。还集成了全新的基带产品，支持LTE Release 9 Cat.4，最高上传、下载速率分别为50Mbps、150Mbps；支持双模4G TD-LTE、FDD-LTE，也支持DC-HSPA+ 42Mbps、TD-SCDMA、EDGE/GSM。</li>
+</ul>
+<h4 id="高通骁龙"><a href="#高通骁龙" class="headerlink" title="高通骁龙"></a>高通骁龙</h4><blockquote>
+<p>1、高通骁龙800系列处理器<br> 骁龙800处理器代表着性能和能效的显著提升。 骁龙800处理器旨在提供卓越的整体用户体验，它扩展了无缝连接计算的可能性，同时提供全新的高端移动体验，包括超高清视频、多频道高清音频和高级图像。</p>
+</blockquote>
+<ul>
+<li>骁龙820处理器 四核KryoCPU    </li>
+<li>骁龙810处理器 四核A57和四核A53</li>
+<li>骁龙808处理器 双核ARM和四核A53内核</li>
+<li>骁龙805处理器 四核 2.7 GHz</li>
+<li>骁龙801处理器 四核 2.5GHz</li>
+<li>骁龙800处理器 四核 2.3GHz</li>
+</ul>
+<blockquote>
+<p>2、高通骁龙600系列处理器<br> 骁龙600处理器经过精心设计，在每瓦特性能方面显著超越其他新型移动处理器。 骁龙600处理器改进了整个系统的架构、升级了关键组件，并扩展了连接选项，可有效满足当今用户需要的高级用户体验，如流畅的在线3D游戏和响应迅捷的网页浏览。</p>
+<ul>
+<li>骁龙652 八核1.8GHz</li>
+<li>骁龙650 六核1.8GHz</li>
+<li>骁龙625 八核2.0 GHz</li>
+<li>骁龙617 八核1.5 GHz</li>
+<li>骁龙616 双四核1.7GHz</li>
+<li>骁龙615 双四核1.7GHz 八核ARM® Cortex™ A53（四个1.7 GHz内核+四个1.0 GHz内核）</li>
+<li>骁龙610 四核1.7GHz</li>
+<li>骁龙602A 四核1.5GHz</li>
+<li>骁龙600 四核1.9GHz</li>
+</ul>
+<p>3、高通骁龙400系列处理器<br>  骁龙400处理器旨在提供最受欢迎的智能手机功能，包括高清视频捕捉和播放、高清多声道音频和高像素摄像头。 其成熟的性能可让您在最喜爱的应用之间无缝切换。无论您是在捕捉精彩瞬间、流式播放影片，还是在玩最新的3D游戏，它都能让您享受到美轮美奂的视觉效果。  </p>
+<ul>
+<li>高通骁龙435 八核1.4GHz</li>
+<li>高通骁龙430 八核1.2 GHz</li>
+<li>高通骁龙425 四核1.4 GHz </li>
+<li>高通骁龙415 八核1.4GHz</li>
+<li>高通骁龙412 四核1.4GHz</li>
+<li>高通骁龙410 四核1.2GHz</li>
+<li>高通骁龙400 双核1.7GHz</li>
+</ul>
+<p> 4、高通骁龙200系列处理器<br>   骁龙200处理器旨在让您比以往更易于获得卓越性能，让您既可以享受到最受欢迎的移动体验，又能优化电池续航时间。 骁龙200处理器实现了应用之间的平滑导航和切换，同时提供生动的高清视觉效果和优质的多声道音频。            </p>
+</blockquote>
+<ul>
+<li>高通骁龙212 四核1.3 GHz</li>
+<li>高通骁龙210 四核1.1 GHz</li>
+<li>高通骁龙208 双核1.1 GHz </li>
+<li>高通骁龙200 四核1.4 GHz </li>
+</ul>
+<h4 id="海思"><a href="#海思" class="headerlink" title="海思"></a>海思</h4><p>海思 K3V2<br>2012年业界体积最小处理器。K3V2有四个A9内核，16个GPU单元，使用TSMC 40nm工艺制造，面积12mmx12mm，是继英伟达tegra3和三星exynos4412之后第四款四核A9处理器。他是一款高性能CPU，主频分为1.2GHz和1.5GHz，是华为自主设计，采用ARM架构35NM、64位内存总线，是Tegra 3内存总线的两倍。K3V2还只是单纯的CPU+GPU，并没有集成无线模块。</p>
+<ul>
+<li>　　海思 K3V2E<br>其实这算不上是海思 K3V2升级版本的处理器，架构，工艺什么的都没有变，只是K3V2e加入了英特尔通讯模版，升级了GPU的的兼容性，扩宽为35nm，这样做是减少技术难度，却能够达到增强游戏兼容性的目的！与其说是CPU的升级版本，不如说是GPU的改造升级，这个离K3V3还有点差距！</li>
+<li>　　海思K3V3<br>双四核处理器，它基于A15架构和ARM big.LITTLE技术，采用28nm工艺制程，由四个Cortex-A15架构核心（主频1.8GHz）和四个Cortex-A7架构核心组成，内置了Mali-T658 GPU。</li>
+<li>　　海思Kirin910<br>采用了Cortex-A9架构，GPU为Mali450 MP4，一级缓存128kb（K3V2E为64KB），二级缓存1MB（K3V2也是1MB），支持LPDDR3 64bit，采用28nm HPM工艺。根据华为副总裁余承东透露，其性能要相比K3V2强大概50%-80%以上，综合功耗降低50%。可与MTK6592和高通骁龙600媲美！</li>
+<li>　　Kirin910T<br>海思Kirin910的升级版，就是主频从1.6GHz提成到了1.8GHz。</li>
+<li>　　Kirin 920<br>这颗SoC也将代替Kirin 910T的位置。Kirin 920/92X采用28nm工艺制造，由四核1.6GHz Cortex-A7和四核2.0GHzCortex-A15组成八核big.LITTLE架构，比现在最高频的Exynos 5420/5422的1.3GHz+1.9GHz高出一些。Kirin 920/92X了采用Mali-T628图形处理器，支持最高2560*1600分辨率的设备。并自带LTE Cat 6的全频段基带，带有DSP芯片和Sensorhub。</li>
+<li>　　Kirin925<br>Kirin 920的升级版，虽然说是升级版，但实际规格方面Kirin 925相比Kirin 920来说变化并不大，依然是四核心Cortex-A7+四核心Cortex-A15架构设计，主频1.8GHz，搭配Mali-T628MP4 GPU，因此性能表现和Kirin 920应该不相上下。</li>
+<li>　　Kirin928<br>拥有高达2.0GHz的四核Cortex-A15核心以及1.3GHz的四核Cortex-A7核心，用在华为智能手机H60-L21的荣耀6至尊版上。Kirin 928从性能上来看就是Kirin 920和Kirin 925小幅超频的产品，但是受限于28nm的工艺，Kirin 928不能长时间稳定在2.0GHz的高频上，当然这对于大部分Cortex-A15内核处理器来说都是个问题。但是更高的主频为Kirin 928的瞬间性能带来了一定的提升，在系统整体的响应上会比Kirin 920更加出色一些。而GPU方面，两者表现几乎完全一致，海思也并没有再对Mali-T624mp4进行超频。</li>
+<li>　　Kirin620<br>与麒麟Kirin 920相似，拥有8核CPU，采用全新ARMv8-A指令集，兼容32位、64位系统，采用第三代LTE基带技术，弱信号环境下4G占网比更高，支持TDD-LTE/FDD-LTE/TD-SCDMA /WCDMA/GSM五模全频，用在华为荣耀畅玩4X上。</li>
+<li>　　Kirin 310<br>在前段时间华为发布了Kirin 620后被曝光，华为的一款低端处理器Kirin 310，采用四核心Cortex-A53架构设计，内置基带支持LTE Cat.4规范（150Mbps）。将在明年一季度初亮相。</li>
+<li>　　Kirin 930<br>会到明年一季度末推出，这是一款旗舰级64位处理器Kirin 930，其采用八核心big.LITTLE架构设计，应该内置八核Cortex-A57核心和八颗Cortex-A53核心，集成的基带芯片支持LTE Cat.6规范。</li>
+</ul>
+<p>Krait 400 架构- 美国高通用ArmV7-a指令集而设计（小米4采用高通骁龙801，引用armlibv7a.so）</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/09/20/使用GithubPages搭建自己的博客/">
+        使用GithubPages搭建自己的博客 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/09/21/手机芯片厂商科普/" data-title="手机芯片厂商科普" data-url="http://yoursite.com/2016/09/21/手机芯片厂商科普/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"dinghy"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By Ding. All Rights Reserved.
+                </p>
+                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://twitter.com/" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="icon-facebook"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="https://google.com/" title="Google-Plus" target="_blank"><i class="icon-google-plus"></i></a>&nbsp;</li>
+                    
+                    
+                    <li><a href="http://weibo.com/" title="Sina-Weibo" target="_blank"><i class="icon-sina-weibo"></i></a>&nbsp;</li>
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
