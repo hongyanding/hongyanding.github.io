@@ -234,9 +234,7 @@
 </ul>
 <p><strong>3. 打Patch包：</strong></p>
 <p>直接使用task:tinkerPatchVariantName(例如tinkerPatchDebug、tinkerPatchRelease)即可自动根据Variant选择相应的编译类型,<strong>补丁包与相关日志会保存在/build/outputs/tinkerPatch/</strong></p>
-<blockquote>
-<p>gradlew tinkerPathDebug</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gradlew tinkerPathDebug</div></pre></td></tr></table></figure>
 <p><strong>4. 自定义Application类</strong></p>
 <p>程序启动时会加载默认的Application类，这导致我们补丁包是无法对它做修改了。如何规避？在这里我们并没有使用类似InstantRun hook Application的方式，而是通过代码框架的方式来避免，这也是为了尽量少的去反射，提升框架的兼容性。</p>
 <p>这里我们要实现的是完全将原来的Application类隔离起来，即其他任何类都不能再引用我们自己的Application。我们需要做的其实是以下几个工作：</p>
