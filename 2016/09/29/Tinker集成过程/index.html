@@ -233,50 +233,34 @@
 <li>再次执行编译。</li>
 </ul>
 <p><strong>3. 打Patch包：</strong></p>
-<p>直接使用task:tinkerPatchVariantName(例如tinkerPatchDebug、tinkerPatchRelease)即可自动根据Variant选择相应的编译类型,<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt;gradlew tinkerPathDebug</div><div class="line"></div><div class="line"></div><div class="line">**4. 自定义Application类**</div><div class="line"></div><div class="line">程序启动时会加载默认的Application类，这导致我们补丁包是无法对它做修改了。如何规避？在这里我们并没有使用类似InstantRun hook Application的方式，而是通过代码框架的方式来避免，这也是为了尽量少的去反射，提升框架的兼容性。</div><div class="line"></div><div class="line">这里我们要实现的是完全将原来的Application类隔离起来，即其他任何类都不能再引用我们自己的Application。我们需要做的其实是以下几个工作：</div><div class="line"></div><div class="line">1. 将我们自己Application的所有代码拷贝到自己的ApplicationLike继承类中，例如SampleApplicationLike;</div><div class="line">2. Application的attachBaseContext方法实现要单独移动到onBaseContextAttached中；</div><div class="line">3. 对ApplicationLike中，引用application的地方改成getApplication();</div><div class="line">4. 对其他引用Application或者它的静态对象与方法的地方，改成引用ApplicationLike的静态对象与方法；</div><div class="line"></div><div class="line">**5.Application代理类**</div><div class="line"></div><div class="line">为了使真正的Application实现可以在补丁包中修改，我们把Appliction类的所有逻辑移动到ApplicationLike代理类中。</div></pre></td></tr></table></figure></p>
-<p>public class YourApplication extends Application {<br>    ActivityLifecycleCallbacks activityLifecycleCallbacks;<br>    public void setTinkerActivityLifecycleCallbacks(ActivityLifecycleCallbacks activityLifecycleCallbacks) {<br>        this.activityLifecycleCallbacks = activityLifecycleCallbacks;<br>    }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">- 然后将你的Application类继承TinkerApplication.java。除了构造方法之外，你最好不要引入其他的类，这将导致它们无法通过补丁修改。</div></pre></td></tr></table></figure></p>
-<p>public class SampleApplication extends TinkerApplication {<br>    public SampleApplication() {<br>      super(<br>        //tinkerFlags, tinker支持的类型，dex,library，还是全部都支持！<br>        ShareConstants.TINKER_ENABLE_ALL,<br>        //ApplicationLike的实现类，只能传递字符串<br>        “tinker.sample.android.app.SampleApplicationLike,<br>        //Tinker的加载器，一般来说用默认的即可<br>        “com.tencent.tinker.loader.TinkerLoader”,<br>        //tinkerLoadVerifyFlag, 运行加载时是否校验dex与,ib与res的Md5<br>        false);<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 使用Annotation生成Application类:</div><div class="line"></div><div class="line">为了隐藏你的Application类，我们更加推荐你使用tinker-android-anno在运行时生成你的Application类。这样保证你无法修改你的Application类，不会因为错误操作导致引入更多无法修改的类。</div><div class="line"></div><div class="line">若采用Annotation生成Application,需要将原来的Application类删掉。到此为止，Tinker初步的接入已真正的完成，你已经可以愉快的使用Tinker来实现补丁功能了。</div></pre></td></tr></table></figure></p>
-<p>@DefaultLifeCycle(<br>application = “.SampleApplication”,                       //application类名<br>flags = ShareConstants.TINKER_ENABLE_ALL,                 //tinkerFlags<br>loaderClass = “com.tencent.tinker.loader.TinkerLoader”,   //loaderClassName, 我们这里使用默认即可!<br>loadVerifyFlag = false)                                   //tinkerLoadVerifyFlag<br>public class SampleApplicationLike extends DefaultApplicationLike<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">最终APP中不需要Application，只用一个ApplicationLike即可。Demo中完整代码如下：</div></pre></td></tr></table></figure></p>
-<p>@SuppressWarnings(“unused”)<br>@DefaultLifeCycle(application = “tinker.sample.android.app.SampleApplication”,<br>                  flags = ShareConstants.TINKER_ENABLE_ALL,<br>                  loadVerifyFlag = false)<br>public class SampleApplicationLike extends DefaultApplicationLike {<br>    private static final String TAG = “Tinker.SampleApplicationLike”;</p>
-<pre><code>public SampleApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag,
-                             long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent,
-                             Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) {
-    super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);
-}
-
-/**
- * install multiDex before install tinker
- * so we don&apos;t need to put the tinker lib classes in the main dex
- *
- * @param base
- */
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-@Override
-public void onBaseContextAttached(Context base) {
-    super.onBaseContextAttached(base);
-    //you must install multiDex whatever tinker is installed!
-    MultiDex.install(base);
-
-    SampleApplicationContext.application = getApplication();
-    SampleApplicationContext.context = getApplication();
-    TinkerManager.setTinkerApplicationLike(this);
-    TinkerManager.initFastCrashProtect();
-    //should set before tinker is installed
-    TinkerManager.setUpgradeRetryEnable(true);
-
-    //optional set logIml, or you can use default debug log
-    TinkerInstaller.setLogIml(new MyLogImp());
-
-    //installTinker after load multiDex
-    //or you can put com.tencent.tinker.** to main dex
-    TinkerManager.installTinker(this);
-}
-
-@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks callback) {
-    getApplication().registerActivityLifecycleCallbacks(callback);
-}
-</code></pre><p>}<br>```</p>
+<p>直接使用task:tinkerPatchVariantName(例如tinkerPatchDebug、tinkerPatchRelease)即可自动根据Variant选择相应的编译类型,<strong>补丁包与相关日志会保存在/build/outputs/tinkerPatch/</strong></p>
+<blockquote>
+<p>gradlew tinkerPathDebug</p>
+</blockquote>
+<p><strong>4. 自定义Application类</strong></p>
+<p>程序启动时会加载默认的Application类，这导致我们补丁包是无法对它做修改了。如何规避？在这里我们并没有使用类似InstantRun hook Application的方式，而是通过代码框架的方式来避免，这也是为了尽量少的去反射，提升框架的兼容性。</p>
+<p>这里我们要实现的是完全将原来的Application类隔离起来，即其他任何类都不能再引用我们自己的Application。我们需要做的其实是以下几个工作：</p>
+<ol>
+<li>将我们自己Application的所有代码拷贝到自己的ApplicationLike继承类中，例如SampleApplicationLike;</li>
+<li>Application的attachBaseContext方法实现要单独移动到onBaseContextAttached中；</li>
+<li>对ApplicationLike中，引用application的地方改成getApplication();</li>
+<li>对其他引用Application或者它的静态对象与方法的地方，改成引用ApplicationLike的静态对象与方法；</li>
+</ol>
+<p><strong>5.Application代理类</strong></p>
+<p>为了使真正的Application实现可以在补丁包中修改，我们把Appliction类的所有逻辑移动到ApplicationLike代理类中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public class YourApplication extends Application &#123;</div><div class="line">    ActivityLifecycleCallbacks activityLifecycleCallbacks;</div><div class="line">    public void setTinkerActivityLifecycleCallbacks(ActivityLifecycleCallbacks activityLifecycleCallbacks) &#123;</div><div class="line">        this.activityLifecycleCallbacks = activityLifecycleCallbacks;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>然后将你的Application类继承TinkerApplication.java。除了构造方法之外，你最好不要引入其他的类，这将导致它们无法通过补丁修改。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class SampleApplication extends TinkerApplication &#123;</div><div class="line">    public SampleApplication() &#123;</div><div class="line">      super(</div><div class="line">        //tinkerFlags, tinker支持的类型，dex,library，还是全部都支持！</div><div class="line">        ShareConstants.TINKER_ENABLE_ALL,</div><div class="line">        //ApplicationLike的实现类，只能传递字符串 </div><div class="line">        &quot;tinker.sample.android.app.SampleApplicationLike,</div><div class="line">        //Tinker的加载器，一般来说用默认的即可</div><div class="line">        &quot;com.tencent.tinker.loader.TinkerLoader&quot;,</div><div class="line">        //tinkerLoadVerifyFlag, 运行加载时是否校验dex与,ib与res的Md5</div><div class="line">        false);</div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>使用Annotation生成Application类:</li>
+</ul>
+<p>为了隐藏你的Application类，我们更加推荐你使用tinker-android-anno在运行时生成你的Application类。这样保证你无法修改你的Application类，不会因为错误操作导致引入更多无法修改的类。</p>
+<p>若采用Annotation生成Application,需要将原来的Application类删掉。到此为止，Tinker初步的接入已真正的完成，你已经可以愉快的使用Tinker来实现补丁功能了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@DefaultLifeCycle(</div><div class="line">application = &quot;.SampleApplication&quot;,                       //application类名</div><div class="line">flags = ShareConstants.TINKER_ENABLE_ALL,                 //tinkerFlags</div><div class="line">loaderClass = &quot;com.tencent.tinker.loader.TinkerLoader&quot;,   //loaderClassName, 我们这里使用默认即可!</div><div class="line">loadVerifyFlag = false)                                   //tinkerLoadVerifyFlag</div><div class="line">public class SampleApplicationLike extends DefaultApplicationLike</div></pre></td></tr></table></figure>
+<p>最终APP中不需要Application，只用一个ApplicationLike即可。Demo中完整代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">@SuppressWarnings(&quot;unused&quot;)</div><div class="line">@DefaultLifeCycle(application = &quot;tinker.sample.android.app.SampleApplication&quot;,</div><div class="line">                  flags = ShareConstants.TINKER_ENABLE_ALL,</div><div class="line">                  loadVerifyFlag = false)</div><div class="line">public class SampleApplicationLike extends DefaultApplicationLike &#123;</div><div class="line">    private static final String TAG = &quot;Tinker.SampleApplicationLike&quot;;</div><div class="line"></div><div class="line">    public SampleApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag,</div><div class="line">                                 long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent,</div><div class="line">                                 Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) &#123;</div><div class="line">        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * install multiDex before install tinker</div><div class="line">     * so we don&apos;t need to put the tinker lib classes in the main dex</div><div class="line">     *</div><div class="line">     * @param base</div><div class="line">     */</div><div class="line">    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)</div><div class="line">    @Override</div><div class="line">    public void onBaseContextAttached(Context base) &#123;</div><div class="line">        super.onBaseContextAttached(base);</div><div class="line">        //you must install multiDex whatever tinker is installed!</div><div class="line">        MultiDex.install(base);</div><div class="line"></div><div class="line">        SampleApplicationContext.application = getApplication();</div><div class="line">        SampleApplicationContext.context = getApplication();</div><div class="line">        TinkerManager.setTinkerApplicationLike(this);</div><div class="line">        TinkerManager.initFastCrashProtect();</div><div class="line">        //should set before tinker is installed</div><div class="line">        TinkerManager.setUpgradeRetryEnable(true);</div><div class="line"></div><div class="line">        //optional set logIml, or you can use default debug log</div><div class="line">        TinkerInstaller.setLogIml(new MyLogImp());</div><div class="line"></div><div class="line">        //installTinker after load multiDex</div><div class="line">        //or you can put com.tencent.tinker.** to main dex</div><div class="line">        TinkerManager.installTinker(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)</div><div class="line">    public void registerActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks callback) &#123;</div><div class="line">        getApplication().registerActivityLifecycleCallbacks(callback);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><strong>6. Release的使用方法</strong></p>
 <p>Tinker的使用方式如下，以gradle接入的release包为例：</p>
 <ul>
